@@ -1,53 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/form.css'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./styles/Home.css";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Chatbot from "./components/Chatbot";
+import StoryTime from "./components/StoryTime";
+import Meditation from "./components/Meditation";
+import Creativity from "./components/Creativity";
+import Suggestions from "./components/Suggestions";
+import Navigation from "./components/Navigation";
 
-function app()
-{
+function App() {
   return (
     <>
-      <div class="mainBackground">
-        <div class="container">
-          <section class="firstSection">
-            <div class="formQuote">You look the most beautiful when you wear your smile!</div>
-          </section>
-          <section class="secondSection">
-            <form>
-              <div class="dataContainer">
-                <div class="formGroup">
-                  <label for="username">Name</label>
-                  <input type="text" id="username" name="username"/>
-                </div>
-                <div class="formGroup">
-                  <label for="age">Age</label>
-                  <input type="number" id="age" name="age"/>
-                </div>
-                <div class="formGroup">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email"/>
-                </div>
-                <div class="formGroup">
-                  <label for="number">Number</label>
-                  <input type="number" id="number" name="number"/>
-                </div>
-                <div class="formGroup">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="password"/>
-                </div>
-              </div>
-              <div class="buttonContainer">
-                <button>Register</button>
-                <div class="accountSwitch">
-                  <p>Already Registred? <a href="#">Login</a></p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
-
-      </div>
+      <Router>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/chatbot" element={<Chatbot />}></Route>
+              <Route path="/storytime" element={<StoryTime />}></Route>
+              <Route path="/meditation" element={<Meditation />}></Route>
+              <Route path="/creativity" element={<Creativity />}></Route>
+              <Route path="/suggestions" element={<Suggestions />}></Route>
+            </Routes>
+         
+      </Router>
     </>
   );
 }
 
-export default app;
+export default App;
